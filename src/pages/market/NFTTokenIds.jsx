@@ -18,6 +18,7 @@ import { getExplorer } from "helpers/networks";
 import { useWeb3ExecuteFunction } from "react-moralis";
 import 'antd/dist/antd.css';
 
+import 'styles/rotatestyle.css'
 const { Meta } = Card;
 
 const styles = {
@@ -55,6 +56,7 @@ const styles = {
     fontSize: "27px",
     fontWeight: "bold",
   },
+  
 };
 
 
@@ -121,6 +123,13 @@ function NFTTokenIds( {inputValue, setInputValue }) {
     });
   }
 
+  const [isActive1, setActive1] = useState(false);
+
+  const toggleClass = (nftNum) => {
+    console.log("# " + nftNum)
+
+  }
+
   const handleBuyClick = (nft) => {
     setNftToBuy(nft);
     console.log(nft.image);
@@ -172,12 +181,6 @@ function NFTTokenIds( {inputValue, setInputValue }) {
   };
 
 
-const [isActive1, setActive1] = useState(false);
-
-const toggleClass1 = () => {
-  setActive1(!isActive1);
-}
-
 const image1TopFt = '';
 const image1TopFtAlt = '';
 const image1CtrFt = '';
@@ -197,6 +200,7 @@ const image1CtrBkAlt = '';
             <div style={{ marginBottom: "10px" }}></div>
           </>
         )}
+{/* 
     <div className="text-center">
       <h1 className="text-5xl text-gray-900 font-bold whitespace-pre-line leading-hero">
         
@@ -307,6 +311,7 @@ const image1CtrBkAlt = '';
         </div>
       </div>
     </div>
+*/}
 
         {inputValue !== "explore" && totalNFTs !== undefined && (
           <>
@@ -379,42 +384,96 @@ const image1CtrBkAlt = '';
             ))}
 
           {inputValue !== "explore" &&
-            NFTTokenIds.slice(0, 20).map((nft, index) => (
-              <Card
-                hoverable
-                actions={[
-                  <Tooltip title="View On Blockexplorer">
-                    <FileSearchOutlined
-                      onClick={() =>
-                        window.open(
-                          `${getExplorer(chainId)}address/${nft.token_address}`,
-                          "_blank"
-                        )
-                      }
-                    />
-                  </Tooltip>,
-                  <Tooltip title="Buy NFT">
-                    <ShoppingCartOutlined onClick={() => handleBuyClick(nft)} />
-                  </Tooltip>,
-                ]}
-                style={{ width: 240, border: "2px solid #e7eaf3" }}
-                cover={
-                  <Image
-                    preview={false}
-                    src={nft.image || "error"}
-                    fallback={fallbackImg}
-                    alt=""
-                    style={{ height: "240px" }}
-                  />
-                }
-                key={index}
-              >
-                {getMarketItem(nft) && (
-                  <Badge.Ribbon text="Buy Now" color="green"></Badge.Ribbon>
-                )}
-                <Meta title={nft.name} description={`#${nft.token_id}`} />
-              </Card>
-            ))}
+            NFTTokenIds.slice(0, 10).map((nft, index) => (
+              <div className="flip-card-container text-center ">
+                <div className="flip-card pt-8 mt-auto">
+                  <div className="flip-card-front">  
+                    <div className="row mt-4" />
+                        <div className="col-md-4 col-sm-6">
+                          <div>
+                            <div className="w3-container m-12">                                                
+                              <div className="front rounded-md" >
+                              <Card
+                                hoverable
+                                actions={[
+                                  <Tooltip title="View On Blockexplorer!!">
+                                    <FileSearchOutlined
+                                      onClick={() =>
+                                        window.open(
+                                          `${getExplorer(chainId)}address/${nft.token_address}`,
+                                          "_blank"
+                                        )
+                                      }
+                                    />
+                                  </Tooltip>,
+                                  <Tooltip title="Buy NFT">
+                                    <ShoppingCartOutlined onClick={() => handleBuyClick(nft.token_id)} />
+                                  </Tooltip>,
+                                ]}
+                                style={{ width: 350, border: "2px solid #e7eaf3" }}
+                                cover={
+                                  <Image
+                                    preview={false}
+                                    src={nft.image || "error"}
+                                    fallback={fallbackImg}
+                                    alt=""
+                                    style={{ height: "350px" }}
+                                  />
+                                }
+                                key={index}
+                              >
+                                {getMarketItem(nft) && (
+                                  <Badge.Ribbon text="Buy Now" color="green"></Badge.Ribbon>
+                                )}
+                                <Meta title={nft.name} description={`#${nft.token_id}`} />
+                              </Card>
+                              </div>
+                              <div className="back"  >
+                            <Badge.Ribbon text="Back" color="green"></Badge.Ribbon>
+                            <div className="header rounded-md bg-gray-400" />
+
+                            <div className="user">
+                              <Image
+                                className="img-circle"
+                                src={`${image1CtrBk}`}
+                                alt={image1CtrBkAlt}
+                              />
+                            </div>
+                            <div className="flip-card-back content">
+                              <div className="main">
+                                <h4 className="text-center">Description</h4>
+                                <p className="text-center">
+                                  No info or text on obverse. General use sets and
+                                  similar subject matter Collections. Some may show wear
+                                  from usage
+                                </p>
+                                <div className="stats-container">
+                                  <div className="stats">
+                                    <h4>P001</h4>
+                                    <p>Collection</p>
+                                  </div>
+                                  <div className="stats">
+                                    <h4>001</h4>
+                                    <p>Set</p>
+                                  </div>
+                                  <div className="stats">
+                                    <h4>000</h4>
+                                    <p>ID</p>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                              </div>
+                              <div className="footer">
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+              ))}
         </div>
         {getMarketItem(nftToBuy) ? (
           <Modal
@@ -427,7 +486,7 @@ const image1CtrBkAlt = '';
             <Spin spinning={loading}>
               <div
                 style={{
-                  width: "250px",
+                  width: "350px",
                   margin: "auto",
                 }}
               >
@@ -440,7 +499,7 @@ const image1CtrBkAlt = '';
                   <img
                     src={nftToBuy?.image}
                     style={{
-                      width: "250px",
+                      width: "350px",
                       borderRadius: "10px",
                       marginBottom: "15px",
                     }}
@@ -459,7 +518,7 @@ const image1CtrBkAlt = '';
             <img
               src={nftToBuy?.image}
               style={{
-                width: "250px",
+                width: "350px",
                 margin: "auto",
                 borderRadius: "10px",
                 marginBottom: "15px",
