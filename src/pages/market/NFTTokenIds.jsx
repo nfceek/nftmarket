@@ -28,8 +28,9 @@ const styles = {
     WebkitBoxPack: "start",
     justifyContent: "flex-start",
     margin: "0 auto",
-    maxWidth: "1000px",
+    maxWidth: "1100px",
     gap: "10px",
+    justifyContent: "center",
   },
   banner: {
     display: "flex",
@@ -200,118 +201,6 @@ const image1CtrBkAlt = '';
             <div style={{ marginBottom: "10px" }}></div>
           </>
         )}
-{/* 
-    <div className="text-center">
-      <h1 className="text-5xl text-gray-900 font-bold whitespace-pre-line leading-hero">
-        
-      </h1>
-      <div className="text-2xl  text-gray-900 mt-4 mb-4">
-        
-      </div>
-      <div className="pt-8 mt-auto">
-        <div className="row mt-4" />
-        <div className="row">
-          <div className="col-sm-10 col-sm-offset-1">
-            <div className="col-md-4 col-sm-6">
-              <div
-                className={
-                  isActive1
-                    ? 'card-container rounded-md manual-flip hover'
-                    : 'card-container rounded-md manual-flip'
-                }
-              >
-            <div className="w3-container m-12">                       
-                  <div className="card hover mb-12">
-                    <div className="front rounded-md" onClick={toggleClass1}>
-                      <Badge.Ribbon text="Front" color="green"></Badge.Ribbon>
-                      <div className="cover">
-                        <Image
-                          src={`${image1TopFt}`}
-                          alt={image1TopFtAlt}
-                        />
-                      </div>
-                      <div className="user">
-                        <Image
-                          className="img-circle"
-                          src={`${image1CtrFt}`}
-                          alt={image1CtrFtAlt}
-                        />
-                      </div>
-                      <div className="content">
-                        <div className="main">
-                          <h3 className="name">Plain Backs</h3>
-                          <p className="profession">MATIC | SOL</p>
-                          <p className="text-center">
-                            General Sets of NFTs
-                            <br />
-                            Category Collections
-                            <br />
-                            Generally non-Printed Backs
-                          </p>
-                          <p className="text-center font-bold text-red-500">
-                            Drop: Coming Soon
-                          </p>
-                        </div>
-                        <div className="footer">
-                          <button onClick={toggleClass1}>
-                            <i className="fa fa-mail-forward"></i> Tap to Rotate
-                          </button>
-                        </div>
-                      </div>
-                    </div>
-                    <div className="back" onClick={toggleClass1}>
-                      <Badge.Ribbon text="Back" color="green"></Badge.Ribbon>
-                      <div className="header rounded-md bg-gray-400" />
-
-                      <div className="user">
-                        <Image
-                          className="img-circle"
-                          src={`${image1CtrBk}`}
-                          alt={image1CtrBkAlt}
-                        />
-                      </div>
-                      <div className="content">
-                        <div className="main">
-                          <h4 className="text-center">Description</h4>
-                          <p className="text-center">
-                            No info or text on obverse. General use sets and
-                            similar subject matter Collections. Some may show wear
-                            from usage
-                          </p>
-                          <div className="stats-container">
-                            <div className="stats">
-                              <h4>P001</h4>
-                              <p>Collection</p>
-                            </div>
-                            <div className="stats">
-                              <h4>001</h4>
-                              <p>Set</p>
-                            </div>
-                            <div className="stats">
-                              <h4>000</h4>
-                              <p>ID</p>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="footer">
-                        <button className="btn btn-simple toggle">
-                          <i className="fa fa-reply"></i> Back
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="col-sm-10 col-sm-offset-1">
-              <div className="mt-12"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-*/}
 
         {inputValue !== "explore" && totalNFTs !== undefined && (
           <>
@@ -385,96 +274,90 @@ const image1CtrBkAlt = '';
 
           {inputValue !== "explore" &&
             NFTTokenIds.slice(0, 10).map((nft, index) => (
-              <div className="flip-card-container text-center ">
-                <div className="flip-card pt-8 mt-auto">
-                  <div className="flip-card-front">  
-                    <div className="row mt-4" />
-                        <div className="col-md-4 col-sm-6">
-                          <div>
-                            <div className="w3-container m-12">                                                
-                              <div className="front rounded-md" >
-                              <Card
-                                hoverable
-                                actions={[
-                                  <Tooltip title="View On Blockexplorer!!">
-                                    <FileSearchOutlined
-                                      onClick={() =>
-                                        window.open(
-                                          `${getExplorer(chainId)}address/${nft.token_address}`,
-                                          "_blank"
-                                        )
-                                      }
-                                    />
-                                  </Tooltip>,
-                                  <Tooltip title="Buy NFT">
-                                    <ShoppingCartOutlined onClick={() => handleBuyClick(nft.token_id)} />
-                                  </Tooltip>,
-                                ]}
-                                style={{ width: 350, border: "2px solid #e7eaf3" }}
-                                cover={
-                                  <Image
-                                    preview={false}
-                                    src={nft.image || "error"}
-                                    fallback={fallbackImg}
-                                    alt=""
-                                    style={{ height: "350px" }}
-                                  />
+              <div class="flip-container">  
+                <div class="flip-card" >
+                  <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                    <div class="Left">
+                      <div class="clip-left">	
+                       <Card
+                          hoverable
+                          actions={[
+                            <Tooltip title="View On Blockexplorer!!">
+                              <FileSearchOutlined
+                                onClick={() =>
+                                  window.open(
+                                    `${getExplorer(chainId)}address/${nft.token_address}`,
+                                    "_blank"
+                                  )
                                 }
-                                key={index}
-                              >
-                                {getMarketItem(nft) && (
-                                  <Badge.Ribbon text="Buy Now" color="green"></Badge.Ribbon>
-                                )}
-                                <Meta title={nft.name} description={`#${nft.token_id}`} />
-                              </Card>
-                              </div>
-                              <div className="back"  >
-                            <Badge.Ribbon text="Back" color="green"></Badge.Ribbon>
-                            <div className="header rounded-md bg-gray-400" />
-
-                            <div className="user">
-                              <Image
-                                className="img-circle"
-                                src={`${image1CtrBk}`}
-                                alt={image1CtrBkAlt}
                               />
-                            </div>
-                            <div className="flip-card-back content">
-                              <div className="main">
-                                <h4 className="text-center">Description</h4>
-                                <p className="text-center">
-                                  No info or text on obverse. General use sets and
-                                  similar subject matter Collections. Some may show wear
-                                  from usage
-                                </p>
-                                <div className="stats-container">
-                                  <div className="stats">
-                                    <h4>P001</h4>
-                                    <p>Collection</p>
-                                  </div>
-                                  <div className="stats">
-                                    <h4>001</h4>
-                                    <p>Set</p>
-                                  </div>
-                                  <div className="stats">
-                                    <h4>000</h4>
-                                    <p>ID</p>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                              </div>
-                              <div className="footer">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+                            </Tooltip>,
+                            <Tooltip title="Buy NFT">
+                              <ShoppingCartOutlined onClick={() => handleBuyClick(nft.token_id)} />
+                            </Tooltip>,
+                          ]}
+                          style={{ width: "350px", border: "2px solid #e7eaf3" }}
+                          cover={
+                            <Image
+                              preview={false}
+                              src={nft.image || "error"}
+                              fallback={fallbackImg}
+                              alt=""
+                              style={{ height: "350px" }}
+                            />
+                          }
+                          key={index}
+                        >
+                          {getMarketItem(nft) && (
+                            <Badge.Ribbon text="Buy Now" color="green"></Badge.Ribbon>
+                          )}
+                          <Meta title={nft.name} description={`#${nft.token_id}`} />
+                        </Card>
+                      </div>		
+                    </div>
+                    </div>
+                    <div class="flip-card-back">
+                    <div class="right">	
+                      <div class="clip-right">		
+                        <Image 
+                          src={"./images/img_avatar1.png"} 
+                          alt="" 
+                          style={{width:"240px",height:"240px"}}
+                          />
                       </div>
                     </div>
-                  </div>
+                  </div> 
+                </div>
+              </div>
+                <div >
+                  <Card
+                    hoverable
+                    actions={[                     
+                      <Tooltip title="View On Blockexplorer!!">
+                        <FileSearchOutlined
+                          onClick={() =>
+                            window.open(
+                              `${getExplorer(chainId)}address/${nft.token_address}`,
+                              "_blank"
+                            )
+                          }
+                        />
+                      </Tooltip>,
+                      <Tooltip title="Buy NFT">
+                        <ShoppingCartOutlined onClick={() => handleBuyClick(nft.token_id)} />
+                      </Tooltip>,
+                    ]}
+                    style={{ width: "350px", border: "2px solid #e7eaf3" }}
+                  ></Card>
+                </div> 
+              </div>
 
+              
+              
               ))}
         </div>
+        
         {getMarketItem(nftToBuy) ? (
           <Modal
             title={`Buy ${nftToBuy?.name} #${nftToBuy?.token_id}`}

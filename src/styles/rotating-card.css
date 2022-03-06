@@ -1,4 +1,4 @@
-
+/*
 .app-container {
   min-height: 450px;
 }
@@ -14,7 +14,7 @@
 .btn:active{
     outline: 0 !important;
 }
-/* entire container, keeps perspective */
+/* entire container, keeps perspective 
 .card-container {
 	  -webkit-perspective: 800px;
    -moz-perspective: 800px;
@@ -22,7 +22,7 @@
         perspective: 800px;
         margin-bottom: 30px;
 }
-/* flip the pane when hovered */
+/* flip the pane when hovered 
 .card-container:not(.manual-flip):hover .card,
 .card-container.hover.manual-flip .card{
 	-webkit-transform: rotateY( 180deg );
@@ -39,7 +39,7 @@
  -o-transform: none;
     transform: none;
 }
-/* flip speed goes here */
+/* flip speed goes here 
 .card {
 	 -webkit-transition: -webkit-transform .5s;
    -moz-transition: -moz-transform .5s;
@@ -52,7 +52,7 @@
 	position: relative;
 }
 
-/* hide back of pane during swap */
+/* hide back of pane during swap 
 .front, .back {
 	-webkit-backface-visibility: hidden;
    -moz-backface-visibility: hidden;
@@ -65,12 +65,12 @@
     box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.14);
 }
 
-/* front pane, placed above back */
+/* front pane, placed above back 
 .front {
 	z-index: 2;
 }
 
-/* back, initially hidden pane */
+/* back, initially hidden pane 
 .back {
 		-webkit-transform: rotateY( 180deg );
    -moz-transform: rotateY( 180deg );
@@ -84,7 +84,7 @@
     left: 0;
     bottom: 4px;
 }
-/*        Style       */
+/*        Style       
 
 
 .card{
@@ -199,7 +199,7 @@
 .card .stats p{
 	color: #777777;
 }
-/*      Just for presentation        */
+/*      Just for presentation        
 
 .title{
     color: #506A85;
@@ -300,7 +300,7 @@
 }
 
 
-/*       Fix bug for IE      */
+/*       Fix bug for IE      
 
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
     .front, .back{
@@ -320,5 +320,5 @@
         z-index: 5;
         visibility: visible;
     }
-
 }
+*/
