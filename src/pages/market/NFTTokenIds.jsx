@@ -237,14 +237,11 @@ const image1CtrBkAlt = '';
                 </>
               </div>
             </div>
-            
-           
-            
 
           </>
         )}
-
-        <div style={styles.NFTs}>
+        {/* default nft */}
+        <div style={styles.NFTs}> 
           {inputValue === "explore" &&
             NFTCollections?.map((nft, index) => (
               <Card
@@ -321,9 +318,9 @@ const image1CtrBkAlt = '';
                     <div class="right">	
                       <div class="clip-right">		
                         <Image 
-                          src={"./images/img_avatar1.png"} 
+                          src={"public/images/img_avatar1.png"} 
                           alt="" 
-                          style={{width:"240px",height:"240px"}}
+                          style={{width:"350px",height:"350px"}}
                           />
                       </div>
                     </div>

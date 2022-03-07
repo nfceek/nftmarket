@@ -45,10 +45,11 @@
 }
 
 .flip-card-back {
-  /*background-image: "./images/img_avatar1.png";*/
-  clip-path: circle(80px at 210px 100px);
+  background-color: white;
   display:none;
-  margin-left:-4em;
+  /*background-image: "./images/img_avatar1.png";
+  clip-path: circle(80px at 210px 100px);
+  margin-left:-4em;*/
 
 }
 
@@ -57,7 +58,7 @@
 }
 
 .clip-right{
-  clip-path: inset(0% 50% 0% 0% round 20%, 20%);
+  /*clip-path: inset(0% 50% 0% 0% round 20%, 20%);*/
 }
 /*
 * {
