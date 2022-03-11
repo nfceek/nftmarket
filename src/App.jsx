@@ -11,6 +11,7 @@ import SearchCollections from "pages/market/SearchCollections";
 import NativeBalance from "pages/market/NativeBalance";
 import NFTMarketTransactions from "pages/market/NFTMarketTransactions";
 import Login from "pages/account/login"
+import ReactGA from "react-ga";
 
 import "antd/dist/antd.css";
 import "./style.css";
@@ -55,7 +56,7 @@ const App = ({ isServerInfo }) => {
   const { isWeb3Enabled, enableWeb3, isAuthenticated, isWeb3EnableLoading } =
     useMoralis();
 
-
+ReactGA.initialize('G-ZYSQ25FHST');
 
   const [inputValue, setInputValue] = useState("explore");
 
