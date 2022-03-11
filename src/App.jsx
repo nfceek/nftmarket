@@ -10,10 +10,10 @@ import { Menu, Layout} from "antd";
 import SearchCollections from "pages/market/SearchCollections";
 import NativeBalance from "pages/market/NativeBalance";
 import NFTMarketTransactions from "pages/market/NFTMarketTransactions";
+import Login from "pages/account/login"
+
 import "antd/dist/antd.css";
-
 import "./style.css";
-
 import './styles/global.css';
 import './styles/rotating-card.css';
 import './styles/bootstrap.css';
@@ -96,6 +96,9 @@ const App = ({ isServerInfo }) => {
               <NavLink to="/Start">📑 Quickstart</NavLink>
             </Menu.Item>
 
+            <Menu.Item key="Login">
+              <NavLink to="/login">📑 Login</NavLink>
+            </Menu.Item>
 
           </Menu>
           <div style={styles.headerRight}>
@@ -119,6 +122,10 @@ const App = ({ isServerInfo }) => {
 
              <Route path="/Start">
               <QuickStart />
+            </Route>
+
+            <Route path="/Login">
+              <Login />
             </Route>
 
           </Switch>
